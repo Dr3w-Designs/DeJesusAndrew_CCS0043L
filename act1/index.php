@@ -8,72 +8,24 @@
 </head>
 <body>
 <?php
-// Minimal, easy-to-read data structures
 $name = 'Andrew J. De Jesus';
 $title = 'IT Specialist - Web and Mobile Applications';
 $email = 'ajdejesus@fit.edu.ph';
 $phone = '+63-9420600001';
 $location = 'Sta. Maria, Bulacan, Philippines';
-$photo = file_exists(__DIR__ . '/photo.jpg') ? 'photo.jpg' : '';
-
 $summary = 'A motivated Information Technology student with hands-on experience in web development, programming, databases, and basic network troubleshooting. Skilled in HTML, CSS, JavaScript, Python, and SQL. Seeking an entry-level IT or web development role.';
-
-$education = [
-    [
-        'title' => 'Bachelor of Science in Information Technology - Web and Mobile Applications',
-        'school' => 'Far Eastern University: Institute of Technology',
-        'date' => 'Aug 2024 - Present',
-        'bullets' => [
-            'Built responsive websites using HTML, CSS, and JavaScript.',
-            'Designed and managed databases using SQL.',
-            'Developed applications using Python and Java.'
-        ]
-    ]
-];
-
-$projects = [
-    ['title' => 'ChemCarnate', 'bullets' => ['A chemistry learning web app with interactive quizzes.']],
-    ['title' => 'Enduro Lab', 'bullets' => ['A laboratory workflow tracker for experiments and scheduling.']],
-    ['title' => 'Swift Stack', 'bullets' => ['A productivity platform for tasks, notes, and deadlines.']]
-];
-
-$technical = [
-    'HTML, CSS, JavaScript',
-    'Python, Java',
-    'SQL & Databases',
-    'Responsive Design',
-    'Basic Networking',
-    'Git & GitHub'
-];
-
-$soft = ['Problem Solving','Communication','Teamwork','Adaptability','Time Management'];
-
-// Merge technical + soft skills into one Skills list
-$skills = array_values(array_unique(array_merge($technical, $soft)));
-
-$certifications = [
-    'IT Specialist in HTML & CSS',
-    'IT Specialist in Java',
-    'IT Specialist in Databases',
-    'IT Specialist in JavaScript',
-    'IT Specialist in Python'
-];
+$photo = file_exists(__DIR__ . '/photo.jpg') ? 'photo.jpg' : '';
 ?>
 
 <main class="resume">
     <header class="header">
         <div class="header-top">
             <div class="photo-wrap">
-                <?php if ($photo): ?>
+                <?php if ($photo) { ?>
                     <img class="profile-photo" src="<?= htmlspecialchars($photo, ENT_QUOTES, 'UTF-8'); ?>" alt="<?= htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); ?>">
-                <?php else: ?>
-                    <?php
-                    $parts = preg_split('/\s+/', trim($name));
-                    $initials = '';
-                    foreach ($parts as $p) { if ($p !== '') $initials .= strtoupper($p[0]); if (strlen($initials) >= 2) break; }
-                    ?>
-                    <div class="profile-photo profile-fallback" aria-label="Profile photo placeholder"><?= htmlspecialchars($initials, ENT_QUOTES, 'UTF-8'); ?></div>
-                <?php endif; ?>
+                <?php } else { ?>
+                    <div class="profile-photo profile-fallback" aria-label="Profile photo placeholder">AJ</div>
+                <?php } ?>
                 <span class="photo-accent" aria-hidden="true"></span>
             </div>
 
@@ -109,41 +61,47 @@ $certifications = [
 
             <section>
                 <h2>Education</h2>
-                <?php foreach ($education as $edu): ?>
-                    <div class="entry">
-                        <div class="entry-header">
-                            <div>
-                                <h3><?= htmlspecialchars($edu['title'], ENT_QUOTES, 'UTF-8'); ?></h3>
-                                <p><?= htmlspecialchars($edu['school'], ENT_QUOTES, 'UTF-8'); ?></p>
-                            </div>
-                            <strong><?= htmlspecialchars($edu['date'], ENT_QUOTES, 'UTF-8'); ?></strong>
+                <div class="entry">
+                    <div class="entry-header">
+                        <div>
+                            <h3>Bachelor of Science in Information Technology - Web and Mobile Applications</h3>
+                            <p>Far Eastern University: Institute of Technology</p>
                         </div>
-                        <?php if (!empty($edu['bullets'])): ?>
-                            <ul>
-                                <?php foreach ($edu['bullets'] as $b): ?>
-                                    <li><?= htmlspecialchars($b, ENT_QUOTES, 'UTF-8'); ?></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        <?php endif; ?>
+                        <strong>Aug 2024 - Present</strong>
                     </div>
-                <?php endforeach; ?>
+                    <ul>
+                        <li>Built responsive websites using HTML, CSS, and JavaScript.</li>
+                        <li>Designed and managed databases using SQL.</li>
+                        <li>Developed applications using Python and Java.</li>
+                    </ul>
+                </div>
             </section>
 
             <section>
                 <h2>Skills</h2>
                 <ul>
-                    <?php foreach ($skills as $sk): ?>
-                        <li><?= htmlspecialchars($sk, ENT_QUOTES, 'UTF-8'); ?></li>
-                    <?php endforeach; ?>
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>Python, Java</li>
+                    <li>SQL &amp; Databases</li>
+                    <li>Responsive Design</li>
+                    <li>Basic Networking</li>
+                    <li>Git &amp; GitHub</li>
+                    <li>Problem Solving</li>
+                    <li>Communication</li>
+                    <li>Teamwork</li>
+                    <li>Adaptability</li>
+                    <li>Time Management</li>
                 </ul>
             </section>
 
             <section>
                 <h2>Certifications</h2>
                 <ul>
-                    <?php foreach ($certifications as $c): ?>
-                        <li><?= htmlspecialchars($c, ENT_QUOTES, 'UTF-8'); ?></li>
-                    <?php endforeach; ?>
+                    <li>IT Specialist in HTML &amp; CSS</li>
+                    <li>IT Specialist in Java</li>
+                    <li>IT Specialist in Databases</li>
+                    <li>IT Specialist in JavaScript</li>
+                    <li>IT Specialist in Python</li>
                 </ul>
             </section>
         </aside>
@@ -151,18 +109,24 @@ $certifications = [
         <div class="right">
             <section>
                 <h2>Projects</h2>
-                <?php foreach ($projects as $p): ?>
-                    <div class="entry">
-                        <h3><?= htmlspecialchars($p['title'], ENT_QUOTES, 'UTF-8'); ?></h3>
-                        <?php if (!empty($p['bullets'])): ?>
-                            <ul>
-                                <?php foreach ($p['bullets'] as $b): ?>
-                                    <li><?= htmlspecialchars($b, ENT_QUOTES, 'UTF-8'); ?></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        <?php endif; ?>
-                    </div>
-                <?php endforeach; ?>
+                <div class="entry">
+                    <h3>ChemCarnate</h3>
+                    <ul>
+                        <li>A chemistry learning web app with interactive quizzes.</li>
+                    </ul>
+                </div>
+                <div class="entry">
+                    <h3>Enduro Lab</h3>
+                    <ul>
+                        <li>A laboratory workflow tracker for experiments and scheduling.</li>
+                    </ul>
+                </div>
+                <div class="entry">
+                    <h3>Swift Stack</h3>
+                    <ul>
+                        <li>A productivity platform for tasks, notes, and deadlines.</li>
+                    </ul>
+                </div>
             </section>
         </div>
     </div>
