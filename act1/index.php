@@ -7,53 +7,60 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <?php
-    // Simple, minimal template data: arrays keep repeated items concise
-    $name = 'Andrew J. De Jesus';
-    $title = 'IT Specialist - Web and Mobile Applications';
-    $email = 'ajdejesus@fit.edu.ph';
-    $phone = '+63-9420600001';
-    $location = 'Sta. Maria, Bulacan, Philippines';
+<?php
+// Minimal, easy-to-read data structures
+$name = 'Andrew J. De Jesus';
+$title = 'IT Specialist - Web and Mobile Applications';
+$email = 'ajdejesus@fit.edu.ph';
+$phone = '+63-9420600001';
+$location = 'Sta. Maria, Bulacan, Philippines';
+$photo = file_exists(__DIR__ . '/photo.jpg') ? 'photo.jpg' : '';
 
-    // Use a single, predictable photo filename for simplicity
-    $photo = file_exists(__DIR__ . '/photo.jpg') ? 'photo.jpg' : '';
+$summary = 'A motivated Information Technology student with hands-on experience in web development, programming, databases, and basic network troubleshooting. Skilled in HTML, CSS, JavaScript, Python, and SQL. Seeking an entry-level IT or web development role.';
 
-    $summary = 'A motivated Information Technology student with hands-on experience in web development, programming, databases, and basic network troubleshooting. Skilled in HTML, CSS, JavaScript, Python, and SQL. Seeking an entry-level IT or web development role.';
-
-    $education = [
-        ['title' => 'Bachelor of Science in Information Technology - Web and Mobile Applications', 'school' => 'Far Eastern University: Institute of Technology', 'date' => 'Aug 2024 - Present', 'bullets' => [
+$education = [
+    [
+        'title' => 'Bachelor of Science in Information Technology - Web and Mobile Applications',
+        'school' => 'Far Eastern University: Institute of Technology',
+        'date' => 'Aug 2024 - Present',
+        'bullets' => [
             'Built responsive websites using HTML, CSS, and JavaScript.',
             'Designed and managed databases using SQL.',
             'Developed applications using Python and Java.'
-        ]]
-    ];
+        ]
+    ]
+];
 
-    $projects = [
-        ['title' => 'ChemCarnate', 'bullets' => ['A chemistry learning web app with interactive quizzes.']],
-        ['title' => 'Enduro Lab', 'bullets' => ['A laboratory workflow tracker for experiments and scheduling.']],
-        ['title' => 'Swift Stack', 'bullets' => ['A productivity platform for tasks, notes, and deadlines.']]
-    ];
+$projects = [
+    ['title' => 'ChemCarnate', 'bullets' => ['A chemistry learning web app with interactive quizzes.']],
+    ['title' => 'Enduro Lab', 'bullets' => ['A laboratory workflow tracker for experiments and scheduling.']],
+    ['title' => 'Swift Stack', 'bullets' => ['A productivity platform for tasks, notes, and deadlines.']]
+];
 
-    $skills = [
-        'HTML, CSS, JavaScript',
-        'Python, Java',
-        'SQL & Databases',
-        'Responsive Design',
-        'Basic Networking',
-        'Git & GitHub'
-    ];
+$technical = [
+    'HTML, CSS, JavaScript',
+    'Python, Java',
+    'SQL & Databases',
+    'Responsive Design',
+    'Basic Networking',
+    'Git & GitHub'
+];
 
-    $certifications = [
-        'IT Specialist in HTML & CSS',
-        'IT Specialist in Java',
-        'IT Specialist in Databases',
-        'IT Specialist in JavaScript',
-        'IT Specialist in Python'
-    ];
+$soft = ['Problem Solving','Communication','Teamwork','Adaptability','Time Management'];
 
-    $soft = ['Problem Solving','Communication','Teamwork','Adaptability','Time Management'];
-    ?>
+// Merge technical + soft skills into one Skills list
+$skills = array_values(array_unique(array_merge($technical, $soft)));
 
+$certifications = [
+    'IT Specialist in HTML & CSS',
+    'IT Specialist in Java',
+    'IT Specialist in Databases',
+    'IT Specialist in JavaScript',
+    'IT Specialist in Python'
+];
+?>
+
+<main class="resume">
     <header class="header">
         <div class="header-top">
             <div class="photo-wrap">
@@ -96,6 +103,11 @@
             </section>
 
             <section>
+                <h2>Profile</h2>
+                <p><?= htmlspecialchars($summary, ENT_QUOTES, 'UTF-8'); ?></p>
+            </section>
+
+            <section>
                 <h2>Education</h2>
                 <?php foreach ($education as $edu): ?>
                     <div class="entry">
@@ -118,6 +130,15 @@
             </section>
 
             <section>
+                <h2>Skills</h2>
+                <ul>
+                    <?php foreach ($skills as $sk): ?>
+                        <li><?= htmlspecialchars($sk, ENT_QUOTES, 'UTF-8'); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </section>
+
+            <section>
                 <h2>Certifications</h2>
                 <ul>
                     <?php foreach ($certifications as $c): ?>
@@ -125,28 +146,9 @@
                     <?php endforeach; ?>
                 </ul>
             </section>
-
-            <section>
-                <h2>Soft Skills</h2>
-                <ul>
-                    <?php foreach ($soft as $s): ?>
-                        <li><?= htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </section>
-
-            <section>
-                <h2>References</h2>
-                <p>Available upon request</p>
-            </section>
         </aside>
 
         <div class="right">
-            <section>
-                <h2>Profile</h2>
-                <p><?= htmlspecialchars($summary, ENT_QUOTES, 'UTF-8'); ?></p>
-            </section>
-
             <section>
                 <h2>Projects</h2>
                 <?php foreach ($projects as $p): ?>
@@ -162,18 +164,13 @@
                     </div>
                 <?php endforeach; ?>
             </section>
-
-            <section>
-                <h2>Technical Skills</h2>
-                <ul>
-                    <?php foreach ($skills as $sk): ?>
-                        <li><?= htmlspecialchars($sk, ENT_QUOTES, 'UTF-8'); ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </section>
         </div>
     </div>
 
+    <section class="references-bottom">
+        <h2>References</h2>
+        <p>Available upon request</p>
+    </section>
 </main>
 </body>
 </html>
