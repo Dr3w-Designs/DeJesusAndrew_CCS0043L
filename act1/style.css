@@ -9,8 +9,8 @@
   --card: #ffffff;
   --text: #10233d;
   --muted: #5f728a;
-  --accent: #2563eb;
-  --line: #dce7f5;
+  --accent: #1d4ed8;
+  --line: #c7d9f4;
 }
 
 body {
@@ -28,6 +28,7 @@ body {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 10px;
+  border-top: 6px solid var(--accent);
 }
 
 .header {
@@ -81,7 +82,7 @@ body {
 }
 
 .title {
-  color: var(--muted);
+  color: var(--accent);
   font-weight: 600;
   margin-bottom: 8px;
 }
@@ -118,7 +119,7 @@ h2 {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--muted);
+  color: var(--accent);
   border-bottom: 1px solid var(--line);
   padding-bottom: 6px;
   margin-bottom: 10px;
@@ -156,7 +157,7 @@ li::marker {
 }
 
 .entry-header strong {
-  color: var(--muted);
+  color: var(--accent);
   font-size: 13px;
   font-weight: 600;
 }
@@ -172,6 +173,14 @@ li::marker {
 
 .references-bottom {
   margin-top: 8px;
+}
+
+.references-bottom h2 {
+  color: var(--accent);
+}
+
+.contact strong {
+  color: var(--accent);
 }
 
 @media screen and (max-width: 700px) {
