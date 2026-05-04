@@ -9,7 +9,7 @@
 <body>
     <?php
 $pageTitle = 'Length Conversion Reference';
-$heroLabel = 'PHP Length Reference';
+$heroLabel = 'PHP Length Conversion - De Jesus, Andrew J.';
 $heroTitle = 'Length Conversions';
 $heroSubtitle = 'A static display of metric and imperial length conversions with the matching abbreviations.';
 
