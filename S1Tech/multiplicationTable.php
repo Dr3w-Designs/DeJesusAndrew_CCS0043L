@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class="mt-wrapper">
-		<h2 class="mt-title">Multiplication Table - De Jesus</h2>
+		<h1 class="mt-title">Multiplication Table - De Jesus</h1>
 		<table class="mt-table" aria-label="Multiplication table">
 			<thead>
 				<tr>
