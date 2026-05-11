@@ -1,0 +1,20 @@
+/* Multiplication Table */
+:root{
+	--Green:#009900;
+	--Gold:#ffc20e;
+	--bg:#ffffff;
+	--page-bg:#fffaf0;
+}
+*{box-sizing:border-box}
+body{font-family: Georgia, 'Times New Roman', serif;background:var(--page-bg);padding:28px}
+.mt-wrapper{max-width:720px;margin:0 auto}
+.mt-title{font-size:3.2rem;text-align:left;margin:6px 0 18px;color:#000}
+.mt-table{border-collapse:collapse;border:6px solid #666;margin:auto}
+.mt-table td,.mt-table th{width:48px;height:48px;text-align:center;border:2px solid #333;font-weight:700}
+.mt-table th{font-size:1.05rem}
+.cell-red{background:var(--Green);color:var(--Gold)}
+.cell-yellow{background:var(--Gold);color:var(--Green)}
+.cell-white{background:#ffffff;color:#000}
+
+@media (max-width:520px){.mt-table td,.mt-table th{width:36px;height:36px;font-size:0.9rem}.mt-title{font-size:2rem}}
+
