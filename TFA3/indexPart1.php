@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <?php>
+    <?php
         /*$people = [
             ['name' => 'Cooper, Justin', 'image' => 'image_justin_cooper.jpg', 'age' => 28, 'bDay' => 'Aug 31, 1997', 'cpNum' => '+63 912 345 6789'],
             ['name' => 'Hill, Justin', 'image' => 'image_justin_hill.jpg', 'age' => 31, 'bDay' => 'Jan 5, 1995', 'cpNum' => '+63 912 345 6789'],
