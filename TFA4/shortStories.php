@@ -41,6 +41,4 @@ include __DIR__ . '/partials/header.php';
     </section>
 </main>
 
-
-
 <?php include __DIR__ . '/partials/footer.php'; ?>
