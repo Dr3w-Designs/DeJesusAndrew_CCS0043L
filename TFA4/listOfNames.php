@@ -22,7 +22,6 @@ $names = [
     'miguel cosico',
 ];
 
-
 function replace_vowels(string $value): string
 {
     return str_replace(
