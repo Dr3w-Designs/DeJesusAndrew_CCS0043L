@@ -24,9 +24,9 @@
         }
 
         // Parameter values
-        $param1 = 04;
+        $param1 = 4;
         $param2 = 19;
-        $param3 = 05;
+        $param3 = 5;
 
         // Calculate results
         $results = calculate_ops($param1, $param2, $param3);
