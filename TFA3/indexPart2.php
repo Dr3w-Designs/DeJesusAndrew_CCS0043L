@@ -29,7 +29,11 @@
 	<div class="container">
 		<main class="main">
 			<table class="people-table">
-				<caption>Array list: <?php echo $list; ?></caption>
+				<thead>
+					<tr>
+						<th colspan="2">Array List: <?php echo $list; ?></th>
+					</tr>
+				</thead>
 				<tbody>
 					<tr>
 						<td>Addition</td>
