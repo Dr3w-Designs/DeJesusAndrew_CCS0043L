@@ -9,6 +9,12 @@
 </head>
 <body>
     <?php
+        $titles = array (
+            'Company Logos',
+            'Company Names',
+            'Origins',
+            'Descriptions'
+        );
         $motorcycleCompanies = array (
             array('husqvarna_logo_image.png', 'Husqvarna', 'Swedish Origin', 'Known for their sleek enduro and motocross bikes, Husqvarna built its first motorcycle in 1903, making it one of the oldest names in dirtbikes.'),
             array('ktm_logo_image.png', 'KTM', 'Austrian Origin', 'KTM is a Austrian motorcycle manufacturer known for their high-performance motorcycles, KTM has been a dominant force in motocross and enduro racing.'),
@@ -33,10 +39,11 @@
                         <th colspan="4"><h2>Dirt Bikes Companies</h2></th>
                     </tr>
                     <tr>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Facts</th>
+                        <?php
+                            foreach ($titles as $title) {
+                                echo "<th>".$title."</th>";
+                            }
+                        ?>
                     </tr>
                 </thead>
                 <tbody>
