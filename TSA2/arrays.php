@@ -30,6 +30,9 @@
             <table class="motorcycleCompanies-table">
                 <thead>
                     <tr>
+                        <th colspan="4"><h2>Dirt Bikes Companies</h2></th>
+                    </tr>
+                    <tr>
                         <th>Image</th>
                         <th>Name</th>
                         <th>Description</th>
@@ -38,6 +41,10 @@
                 </thead>
                 <tbody>
                     <?php
+                        usort($motorcycleCompanies, function ($a, $b) {
+                            return strcasecmp($a[1], $b[1]);
+                        });
+
                         foreach ($motorcycleCompanies as $company) {
                             echo "<tr><td><img src='images/".$company[0]."' alt='".$company[1]."' style='width: ".$imgWidth."; height: auto;'></td><td>".$company[1]."</td><td>".$company[2]."</td><td>".$company[3]."</td></tr>";
                         }
