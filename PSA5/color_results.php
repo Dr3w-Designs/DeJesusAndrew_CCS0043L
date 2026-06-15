@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -58,6 +57,5 @@ function display_value($value) {
 <footer class="site-footer">
         <p>For educational purposes only &copy; 2026 Andrew De Jesus</p>
 </footer>
-        
 </body>
 </html>
