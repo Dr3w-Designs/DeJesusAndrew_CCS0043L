@@ -54,7 +54,9 @@
         </div>
     </div>
 
-    
+    <footer class="site-footer">
+        <p>For educational purposes only &copy; 2026 Andrew De Jesus</p>
+    </footer>
 
 </body>
 </html>

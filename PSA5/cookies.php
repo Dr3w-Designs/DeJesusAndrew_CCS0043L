@@ -1,7 +1,8 @@
 <?php
-    setcookie("fname", "Andrew", time() + 10); // Cookie expires in 10 seconds
-    setcookie("mname", "Jacinto", time() + 20); // Cookie expires in 20 seconds
-    setcookie("lname", "De Jesus", time() + 30); // Cookie expires in 30 seconds
+    // Set cookies with different expiration times
+    setcookie("fname", "Andrew", time() + 10);
+    setcookie("mname", "Jacinto", time() + 20);
+    setcookie("lname", "De Jesus", time() + 30);
 ?>
 
 <!DOCTYPE html>
@@ -11,8 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookies - De Jesus</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
 </head>
 <body>
     <div class="page-shell">
@@ -32,9 +31,6 @@
         </div>
     </div>
 
-    <footer class="site-footer">
-        <p>For educational purposes only &copy; 2024 Andrew De Jesus</p>
-    </footer>
     <footer class="site-footer">
         <p>For educational purposes only &copy; 2026 Andrew De Jesus</p>
     </footer>
