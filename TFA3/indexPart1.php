@@ -9,8 +9,6 @@
 </head>
 <body>
     <?php
-        $imgWidth = '150px'; // Change this to adjust image size
-
         $people = array (
             array('Cooper, Justin', 'image_justin_cooper.jpg', 28, 'Aug 31, 1997', '+63 912 345 6789'),
             array('Hill, Justin', 'image_justin_hill.jpg', 31, 'Jan 5, 1995', '+63 912 345 6789'),
