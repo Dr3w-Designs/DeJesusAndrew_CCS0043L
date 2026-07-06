@@ -1,0 +1,335 @@
+:root {
+    --page: #FBF9F6;
+    --surface: #ffffff;
+    --ink: #1E2A3A;
+    --accent: #F3A839;
+    --accent-hover: #d18c2a;
+    --line: rgba(30, 42, 58, 0.18);
+    --shadow: rgba(30, 42, 58, 0.12);
+    --error: #e74c3c;
+    --error-dark: #c0392b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    background: var(--page);
+}
+
+.page-wrap,
+.login-page,
+.dashboard-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 48px 20px;
+}
+
+.form-card,
+.login-card,
+.dashboard-shell {
+    width: min(100%, 520px);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: 0 12px 28px var(--shadow);
+}
+
+.compact-card {
+    max-width: 430px;
+    padding: 30px;
+}
+
+h1,
+h2,
+p {
+    color: var(--ink);
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 1.45rem;
+    line-height: 1.25;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 14px;
+    font-size: 1.2rem;
+}
+
+p {
+    margin-bottom: 14px;
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    color: var(--ink);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+    color: var(--ink);
+    font-size: 1rem;
+    background: var(--surface);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+}
+
+input:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 5px rgba(243, 168, 57, 0.5);
+}
+
+button,
+.logout-button,
+.dashboard-links a,
+.text-link {
+    font: inherit;
+}
+
+button,
+.small-button,
+.logout-button,
+.dashboard-links a,
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 10px 20px;
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: none;
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+button:hover,
+.logout-button:hover,
+.dashboard-links a:hover,
+.text-link:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.form-card button[type="submit"] {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 1.05rem;
+}
+
+.note {
+    margin-top: 14px;
+    font-size: 0.85rem;
+}
+
+.message {
+    margin-bottom: 18px;
+    padding: 12px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.message.success {
+    color: var(--ink);
+    background: var(--accent);
+    border: 1px solid var(--ink);
+}
+
+.message.error {
+    color: var(--page);
+    background: var(--error);
+    border: 1px solid var(--error-dark);
+}
+
+.result-box,
+.welcome-panel {
+    margin-top: 20px;
+    padding: 18px;
+    background: var(--page);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+
+.result-box p,
+.welcome-panel p {
+    margin-bottom: 8px;
+}
+
+.result-box p:last-child,
+.welcome-panel p:last-child {
+    margin-bottom: 0;
+}
+
+.login-card {
+    max-width: 460px;
+    padding: 30px;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 64px;
+    margin-bottom: 28px;
+    padding: 10px 14px;
+    background: var(--page);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    color: var(--page);
+    font-weight: 800;
+    background: var(--ink);
+    border-radius: 50%;
+}
+
+.menu-button {
+    display: grid;
+    gap: 4px;
+    place-content: center;
+    width: 48px;
+    height: 40px;
+    padding: 0;
+    background: var(--surface);
+    border-color: var(--line);
+}
+
+.menu-button:hover {
+    background: var(--accent);
+}
+
+.menu-button span {
+    display: block;
+    width: 23px;
+    height: 2px;
+    background: var(--ink);
+}
+
+.inline-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.check-label {
+    font-weight: 400;
+}
+
+.small-button {
+    width: 90px;
+    margin-left: 6px;
+}
+
+.text-link {
+    width: 100%;
+    margin-top: 16px;
+}
+
+.dashboard-shell {
+    max-width: 680px;
+    padding: 30px;
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--accent);
+}
+
+.dashboard-header h1 {
+    margin-bottom: 0;
+    font-size: 1.7rem;
+    text-align: left;
+}
+
+.eyebrow {
+    margin-bottom: 5px;
+    color: var(--accent-hover);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.logout-button {
+    min-width: 96px;
+}
+
+.dashboard-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.dashboard-links a {
+    min-width: 140px;
+}
+
+@media (max-width: 520px) {
+    .page-wrap,
+    .login-page,
+    .dashboard-page {
+        padding: 24px 12px;
+    }
+
+    .compact-card,
+    .login-card,
+    .dashboard-shell {
+        padding: 20px;
+    }
+
+    .dashboard-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .logout-button,
+    .dashboard-links a {
+        width: 100%;
+    }
+}
