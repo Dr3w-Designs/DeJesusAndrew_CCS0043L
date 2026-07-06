@@ -26,9 +26,13 @@ function create_user($conn, $user)
     $passwordHash = password_hash($user["password"], PASSWORD_DEFAULT);
 
     $stmt = $conn->prepare(
-        "INSERT INTO users (first_name, middle_name, last_name, username, password_hash, birthday, email, contact_number)
+        "INSERT INTO users (first_name, middle_name, last_name, username, password, birthday, email, contact_number)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
     );
+
+    if (!$stmt) {
+        return false;
+    }
 
     $stmt->bind_param(
         "ssssssss",
@@ -74,13 +78,24 @@ function get_user_by_id($conn, $id)
 
 function password_is_valid($password, $user)
 {
-    return isset($user["password_hash"]) && password_verify($password, $user["password_hash"]);
+    if (!isset($user["password"])) {
+        return false;
+    }
+
+    $savedPassword = (string) $user["password"];
+
+    return password_verify($password, $savedPassword) || hash_equals($savedPassword, $password);
 }
 
 function update_user_password($conn, $userId, $password)
 {
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-    $stmt = $conn->prepare("UPDATE users SET password_hash = ? WHERE id = ?");
+    $stmt = $conn->prepare("UPDATE users SET password = ? WHERE id = ?");
+
+    if (!$stmt) {
+        return false;
+    }
+
     $stmt->bind_param("si", $passwordHash, $userId);
     $updated = $stmt->execute();
     $stmt->close();

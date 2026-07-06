@@ -6,8 +6,8 @@ if (isset($_SESSION["actb_user_id"])) {
     exit;
 }
 
-require_once "database.php";
-require_once "helpers.php";
+require_once "db.php";
+require_once "helper.php";
 
 $values = [
     "first_name" => "",

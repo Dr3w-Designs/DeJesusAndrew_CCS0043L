@@ -1,7 +1,7 @@
 <?php
-require_once  "auth.php";
-require_once "database.php";
-require_once "helpers.php";
+require_once "authorize.php";
+require_once "db.php";
+require_once "helper.php";
 
 $user = get_user_by_id($conn, (int) $_SESSION["actb_user_id"]);
 

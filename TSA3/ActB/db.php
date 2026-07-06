@@ -1,5 +1,5 @@
 <?php
-$databaseHost = "localhost";
+$databaseHost = "127.0.0.1";
 $databaseUser = "root";
 $databasePassword = "";
 $databaseName = "mydb";
@@ -27,7 +27,7 @@ $conn->query(
         middle_name varchar(50) NOT NULL,
         last_name varchar(50) NOT NULL,
         username varchar(50) NOT NULL,
-        password_hash varchar(255) NOT NULL,
+        password varchar(255) NOT NULL,
         birthday varchar(50) NOT NULL,
         email varchar(100) NOT NULL,
         contact_number varchar(30) NOT NULL,
@@ -37,3 +37,9 @@ $conn->query(
         UNIQUE KEY email (email)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci"
 );
+
+$conn->query("ALTER TABLE users CHANGE password_hash password varchar(255) NOT NULL");
+$conn->query("ALTER TABLE users MODIFY middle_name varchar(50) NOT NULL");
+$conn->query("ALTER TABLE users MODIFY password varchar(255) NOT NULL");
+$conn->query("ALTER TABLE users MODIFY birthday varchar(50) NOT NULL");
+$conn->query("ALTER TABLE users MODIFY contact_number varchar(30) NOT NULL");
